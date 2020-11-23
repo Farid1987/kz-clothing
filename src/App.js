@@ -2,6 +2,7 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import PropTypes from "prop-types";
 
 import "./App.css";
 
@@ -61,5 +62,10 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
 })
+
+App.propTypes = {
+  setCurrentUser: PropTypes.func,
+  currentUser: PropTypes.object
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
