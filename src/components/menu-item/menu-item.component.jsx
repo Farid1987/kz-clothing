@@ -2,23 +2,24 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from 'prop-types';
 
+import { MenuItemContainer, BackgroundImgContainer, MenuItemContent, MenuItemTitle, MenuItemSubtitle } from './menu-item.styles';
 import "./menu-item.styles.scss";
 
 const MenuItem = ({ title, imageUrl, size, history, linkUrl, match }) => {
   return (
-    <div
-      className={`${size} menu-item`}
+    <MenuItemContainer
+      className={`${size}`}
       onClick={() => history.push(`${match.url}${linkUrl}`)}
     >
-      <div
+      <BackgroundImgContainer
         className="background-image"
         style={{ backgroundImage: `url(${imageUrl})` }}
-      ></div>
-      <div className="content">
-        <h1 className="title">{title.toUpperCase()}</h1>
-        <span className="subtitle">SHOP NOW</span>
-      </div>
-    </div>
+      ></BackgroundImgContainer>
+      <MenuItemContent>
+        <MenuItemTitle>{title.toUpperCase()}</MenuItemTitle>
+        <MenuItemSubtitle>SHOP NOW</MenuItemSubtitle>
+      </MenuItemContent>
+    </MenuItemContainer>
   );
 };
 
