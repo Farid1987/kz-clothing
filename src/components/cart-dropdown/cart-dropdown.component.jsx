@@ -33,7 +33,7 @@ const mapStateToProps = createStructuredSelector({
 })
 
 CartDropdown.propTypes = {
-  cartItems: PropTypes.object,
+  cartItems: PropTypes.array,
   history: PropTypes.object,
   dispatch: PropTypes.func
 }

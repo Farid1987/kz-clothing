@@ -54,7 +54,7 @@ const mapStateToProps = createStructuredSelector({
 })
 
 CheckoutPage.propTypes = {
-  cartItems: PropTypes.object,
+  cartItems: PropTypes.array,
   total: PropTypes.number
 }
 
