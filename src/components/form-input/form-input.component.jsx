@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 import "./form-input.styles.scss";
 
@@ -16,5 +17,10 @@ const FormInput = ({ handleChange, label, ...otherProps }) => (
     ) : null}
   </div>
 );
+
+FormInput.propTypes = {
+  handleChange: PropTypes.func,
+  label: PropTypes.string
+}
 
 export default FormInput;

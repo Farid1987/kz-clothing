@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 import "./menu-item.styles.scss";
 
@@ -20,5 +21,14 @@ const MenuItem = ({ title, imageUrl, size, history, linkUrl, match }) => {
     </div>
   );
 };
+
+MenuItem.propTypes = {
+  history: PropTypes.object,
+  match: PropTypes.object,
+  title: PropTypes.string,
+  imageUrl: PropTypes.string,
+  size: PropTypes.string,
+  linkUrl: PropTypes.string,
+}
 
 export default withRouter(MenuItem);

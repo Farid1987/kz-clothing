@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 import CollectionItem from "../collection-item/collection-item.component";
 
@@ -18,5 +19,10 @@ const CollectionPreview = ({ title, items }) => {
     </div>
   );
 };
+
+CollectionPreview.propTypes = {
+  title: PropTypes.string,
+  items: PropTypes.object
+}
 
 export default CollectionPreview;

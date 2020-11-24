@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 
 import CustomButton from "../custom-button/custom-button.component";
@@ -23,5 +24,10 @@ const CollectionItem = ({ item, addItem }) => {
 const mapDispatchToProps = dispatch => ({
   addItem: item => dispatch(addItem(item))
 })
+
+CollectionItem.propTypes = {
+  item: PropTypes.object,
+  addItem: PropTypes.func
+}
 
 export default connect(null, mapDispatchToProps)(CollectionItem);

@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
+import PropTypes from 'prop-types';
+
 
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
 import StripeCheckoutButton from '../../components/stripe-button/stripe-button.component';
@@ -50,5 +52,10 @@ const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
   total: selectCartTotal
 })
+
+CheckoutPage.propTypes = {
+  cartItems: PropTypes.object,
+  total: PropTypes.number
+}
 
 export default connect(mapStateToProps)(CheckoutPage);

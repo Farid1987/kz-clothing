@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import CollectionItem from '../../components/collection-item/collection-item.component';
 
@@ -24,5 +25,9 @@ const CollectionPage = ({ collection }) => {
 const mapStateToProps = (state, ownProps) => ({
   collection: selectCollection(ownProps.match.params.collectionId)(state)
 })
+
+CollectionPage.propTypes = {
+  collection: PropTypes.object
+}
 
 export default connect(mapStateToProps)(CollectionPage);

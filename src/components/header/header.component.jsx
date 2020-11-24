@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import PropTypes from 'prop-types';
 
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 
@@ -46,5 +47,10 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   hiddenValue: selectCartHidden
 })
+
+Header.propTypes = {
+  currentUser: PropTypes.object,
+  hiddenValue: PropTypes.bool
+}
 
 export default connect(mapStateToProps)(Header);
