@@ -1,15 +1,16 @@
 import React from 'react';
+// import { compose } from "redux";
 import { connect } from 'react-redux';
 
 import CollectionItem from '../../components/collection-item/collection-item.component';
+import WithSpinner from '../../components/with-spinner/with-spinner.component';
 
-import { selectCollection } from '../../redux/shop/shop.selectors';
+import { selectCollection, selectIsCollectionsLoaded } from '../../redux/shop/shop.selectors';
 
 import { CollectionPageContainer, CollectionTitle, CollectionItems } from './collection.styles';
-// import "./collection.styles.scss";
 
 const CollectionPage = ({ collections }) => {
-  const {title, items} = collections
+  const {title, items} = collections;
   return (
     <CollectionPageContainer>
       <CollectionTitle>{ title }</CollectionTitle>
@@ -23,7 +24,8 @@ const CollectionPage = ({ collections }) => {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  collections: selectCollection(ownProps.match.params.collectionId)(state)
+  collections: selectCollection(ownProps.match.params.collectionId)(state),
+  isLoading: !selectIsCollectionsLoaded(state)
 })
 
-export default connect(mapStateToProps)(CollectionPage);
+export default connect(mapStateToProps)(WithSpinner(CollectionPage));
